@@ -20,19 +20,14 @@ public class ComboCounter : MonoBehaviour
     {
         player.OnBreak += UpdateCount;
     }
-    void Start()
+    private void Start()
     {
-        // _scaleTweener = txtCounter.rectTransform
-        //     .DOScale(1, 3f)
-        //     .SetEase(Ease.InOutElastic)
-        //     .SetAutoKill(false)
-        //     .OnComplete(() => {
-        //         _scaleTweener.Restart();
-        //     });
+        NotificationsManager.Instance.OnEnemyDead += UpdateCount;
     }
     private void OnDestroy()
     {
         player.OnBreak -= UpdateCount;
+        NotificationsManager.Instance.OnEnemyDead -= UpdateCount;
     }
     private void Update()
     {
@@ -51,7 +46,7 @@ public class ComboCounter : MonoBehaviour
         txtCounter.rectTransform.DOScale(txtCounter.rectTransform.localScale.x + counter/10, 0.2f);
         txtCounter.rectTransform.DOScale(1, 2f);
 
-        if(counter >= 15)
+        if(counter >= 25)
         {
             NotificationsManager.Instance.SpawnNotification(player.transform.position, 0);
         }

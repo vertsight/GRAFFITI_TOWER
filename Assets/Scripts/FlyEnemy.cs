@@ -22,8 +22,6 @@ public class FlyEnemy : MonoBehaviour
     public void Initialize()
     {
         IsUsing = true;
-        Debug.Log(-8.5f + playerCamera.transform.position.y);
-        Debug.Log(-7.7f + playerCamera.transform.position.y);
         rb.velocity = Vector3.zero;
         transform.position = new Vector3(startX, -11.5f + playerCamera.transform.position.y);
         transform.DOLocalMoveY(-6.36f, 1f);

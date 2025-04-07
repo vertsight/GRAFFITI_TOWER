@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Destroy
+  - Fail
   layers:
   - Default
   - TransparentFX

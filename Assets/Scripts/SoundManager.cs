@@ -8,6 +8,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource Music;
     public AudioSource Rebound;
     public AudioSource Explosion;
+    public AudioSource Noise;
 
     private void Awake()
     {

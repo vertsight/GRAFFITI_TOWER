@@ -12,6 +12,7 @@ public class Level : MonoBehaviour
     [SerializeField] Enemy[] enemies;
     [SerializeField] Graffiti[] graffitis;
     [SerializeField] BreakingObstacle breakingObstacle;
+    [SerializeField] Transform breakingObstacleBG;
     [SerializeField] Transform flat_1;
     [SerializeField] Transform flat_2;
 
@@ -107,6 +108,7 @@ public class Level : MonoBehaviour
             totalWidth/2 - holeWidth/2);
         
         breakingObstacle.transform.localPosition = new Vector3(holeXPosition, floorPositionY, 0);
+        // breakingObstacleBG.transform.localPosition = new Vector3(holeXPosition, floorPositionY, 0);
         breakingObstacle.transform.localScale = new Vector3(holeWidth, 1, 1);
         
         float leftFloorWidth = (totalWidth - holeWidth) / 2 + holeXPosition;

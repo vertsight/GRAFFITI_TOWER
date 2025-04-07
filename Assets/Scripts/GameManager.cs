@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject pnlStart;
     [SerializeField] Image jumpH;
     [SerializeField] Image hitH;
-    [SerializeField] TMP_Text txtLogo;
+    [SerializeField] Image txtLogo;
 
     private void Awake()
     {
@@ -37,8 +37,9 @@ public class GameManager : MonoBehaviour
         LevelManager.Instance.RoomsUpSpeed = 1f;
         SoundManager.Instance.Music.Play();
         SoundManager.Instance.Music.DOFade(0.8f, 0.4f);
+        SoundManager.Instance.Noise.Stop();
 
-        txtLogo.rectTransform.DOAnchorPosY(-320, 0.7f);
+        txtLogo.rectTransform.DOAnchorPosY(-495, 0.7f);
         jumpH.rectTransform.DOAnchorPos(new Vector2(-229f, 127f), 0.7f);
         hitH.rectTransform.DOAnchorPosX(-229f, 0.7f).onComplete = () => 
         {
@@ -49,7 +50,7 @@ public class GameManager : MonoBehaviour
     {
         LevelManager.Instance.RoomsUpSpeed = 0f;
         pnlStart.gameObject.SetActive(true);
-        txtLogo.rectTransform.DOAnchorPosY(267, 0.7f);
+        txtLogo.rectTransform.DOAnchorPosY(26, 0.7f);
         jumpH.rectTransform.DOAnchorPos(new Vector2(215f, -120f), 0.7f);
         hitH.rectTransform.DOAnchorPosX(215f, 0.7f);
 
@@ -71,5 +72,6 @@ public class GameManager : MonoBehaviour
             levelGenerator.StartGenerate();
         };
         SoundManager.Instance.Music.DOFade(0, 0.7f).onComplete = () => SoundManager.Instance.Music.Stop();
+        SoundManager.Instance.Noise.Play();
     }
 }
